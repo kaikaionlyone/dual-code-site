@@ -1,15 +1,22 @@
-# TED System
 
-> Tecnologia que evolui com o seu negócio.
+# DualCode
+
+> Grandes projetos são feitos por pessoas que não desistem.
 
 ## Sobre a Empresa
-Desenvolver soluções de software personalizadas, seguras e escaláveis que simplifiquem processos, aumentem a produtividade e impulsionem o crescimento dos nossos clientes.
+
+A DualCode é uma empresa de tecnologia fundada em 2024 por Kailany Nascimento e Maria Emanuele da Silva. É especializada no desenvolvimento de soluções tecnológicas seguras e confiáveis, com foco na segurança da informação, na proteção de dados e na criação de sistemas de qualidade.
+
+Sua missão é tornar a segurança de dados mais acessível e compreensível para todos, garantindo a confiabilidade dos códigos e das soluções desenvolvidas.
 
 ## Localização
-- **Endereço:** Rua Coronel Simplício, 250, Sala 12
-- **Local:** Centro, Piripiri, PI - CEP 64260-000
+
+- **Endereço:** Avenida das Nações, nº 1500, Bloco B, Apt 302
+- **Local:** Centro, São Paulo - SP
+- **CEP:** 01000-000
 
 ## Equipe
-- **Wanderson de Vasconcelos** — CEO e Engenheiro de Software
-- **Sheldon Cooper** — Especialista Full Stack
-- **Amy Farrah Fowler** — Especialista em Bancos de Dados
+
+- **Kailany Nascimento** — Co-fundadora, CEO e Desenvolvedora Front-end.
+- **Maria Emanuele da Silva** — Co-fundadora, CTO (Diretora de Tecnologia) e Desenvolvedora Back-end.
+- **João Marcos da Silva** — Desenvolvedor Full Stack.
