@@ -46,7 +46,7 @@ export const empresa = {
     {
       nome: "Maria Emanuele da Silva",
       cargo: "Co-fundadora, CTO e Desenvolvedora Back-end",
-      foto: "/images/maria.jpg",
+      foto: "/images/emanuele.jpg",
       alt: "Foto de Maria Emanuele da Silva",
       descricao: "Co-fundadora e Diretora de Tecnologia da DualCode, responsável pelo desenvolvimento back-end e pela estrutura tecnológica dos projetos."
     },
