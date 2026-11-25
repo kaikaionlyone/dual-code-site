@@ -1,39 +1,20 @@
+---
+import LayoutBase from '../layouts/LayoutBase.astro';
+import { empresa } from '../data/empresa.js';
+---
 
-<html lang="pt-BR">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Início | DualCode</title>
-	</head>
-	<body>
-		<header>
-			<strong>DualCode</strong>
-			<nav>
-				<ul>
-					<li><a href="/">Início</a></li>
-					<li><a href="/sobre">Sobre</a></li>
-					<li><a href="/equipe">Equipe</a></li>
-					<li><a href="/contato">Contato</a></li>
-				</ul>
-			</nav>
-		</header>
+<LayoutBase 
+	titulo="Início" 
+	descricao={`Bem-vindo à ${empresa.nome}. ${empresa.slogan}`}
+>
+	<section>
+		<h1>{empresa.slogan}</h1>
+		<p>{empresa.missao}</p>
+		<a href="/contato">Fale Conosco</a>
+	</section>
 
-		<main>
-			<section>
-				<h1>Grandes projetos são feitos por pessoas que não desistem.</h1>
-				<p>Tornar a segurança de dados mais acessível e compreensível para todos, garantindo a segurança e a confiabilidade dos códigos e soluções desenvolvidos pela empresa.</p>
-				<a href="/contato">Fale Conosco</a>
-			</section>
-
-			<section>
-				<h2>Quem Atendemos</h2>
-				<p>A DualCode atende Pequenas e Médias Empresas (PMEs), startups e empreendedores digitais que utilizam ou desenvolvem tecnologia no dia a dia, mas não possuem uma equipe interna especializada em segurança da informação. Nosso público inclui lojas virtuais, clínicas, escritórios, empresas de software e profissionais autônomos que precisam proteger seus dados e desenvolver sistemas seguros e confiáveis.</p>
-			</section>
-		</main>
-
-		<footer>
-			<p>&copy; 2026 DualCode. Todos os direitos reservados.</p>
-		</footer>
-	</body>
-</html>
+	<section>
+		<h2>Quem Atendemos</h2>
+		<p>{empresa.publicoAlvo}</p>
+	</section>
+</LayoutBase>

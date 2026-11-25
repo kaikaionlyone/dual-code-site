@@ -1,63 +1,36 @@
+---
+import LayoutBase from '../layouts/LayoutBase.astro';
+import { empresa } from '../data/empresa.js';
+---
 
-<html lang="pt-BR">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Sobre Nós | DualCode</title>
-	</head>
-	<body>
-		<header>
-			<strong>DualCode</strong>
-			<nav>
-				<ul>
-					<li><a href="/">Início</a></li>
-					<li><a href="/sobre">Sobre</a></li>
-					<li><a href="/equipe">Equipe</a></li>
-					<li><a href="/contato">Contato</a></li>
-				</ul>
-			</nav>
-		</header>
+<LayoutBase 
+	titulo="Sobre Nós" 
+	descricao={`Conheça a história e os valores da ${empresa.nome}.`}
+>
+	<section>
+		<h1>Sobre a {empresa.nome}</h1>
+		<p>{empresa.historia}</p>
+	</section>
 
-		<main>
-			<section>
-				<h1>Sobre a DualCode</h1>
-				<p>A DualCode foi fundada em 2024 por Kailany Nascimento e Maria Emanuele da Silva, após concluírem sua formação superior na área de tecnologia. Durante a trajetória acadêmica, as duas desenvolveram projetos em parceria e perceberam que muitas empresas enfrentavam problemas de segurança digital, como senhas fracas, falhas na programação e sistemas vulneráveis. Diante disso, decidiram criar uma empresa voltada ao desenvolvimento de soluções tecnológicas seguras e confiáveis.</p>
+	<section>
+		<h2>Missão</h2>
+		<p>{empresa.missao}</p>
+	</section>
 
-				<p>O nome DualCode surgiu da união de "Dual", representando a parceria das fundadoras, e "Code", que significa código em inglês. Com o crescimento da empresa, João Marcos da Silva passou a integrar a equipe como desenvolvedor Full Stack, fortalecendo a criação de sistemas e a segurança da informação.</p>
-			</section>
+	<section>
+		<h2>Visão</h2>
+		<p>{empresa.visao}</p>
+	</section>
 
-			<section>
-				<h2>Missão</h2>
-				<p>Tornar a segurança de dados mais acessível e compreensível para todos, independentemente do nível de conhecimento técnico, garantindo também a segurança e a confiabilidade dos códigos e soluções desenvolvidos pela empresa.</p>
-			</section>
-
-			<section>
-				<h2>Visão</h2>
-				<p>Consolidar-se como uma empresa de referência em segurança da informação, reconhecida pela excelência, inovação e confiabilidade de suas soluções, contribuindo para um ambiente digital mais seguro e inclusivo.</p>
-			</section>
-
-			<section>
-				<h2>Nossos Valores</h2>
-				<ul>
-					<li>
-						<h3>Segurança</h3>
-						<p>Compromisso com a proteção de dados e o desenvolvimento de soluções tecnológicas seguras.</p>
-					</li>
-					<li>
-						<h3>Inovação</h3>
-						<p>Busca constante por novas ideias e soluções para melhorar os serviços tecnológicos.</p>
-					</li>
-					<li>
-						<h3>Confiança</h3>
-						<p>Construção de relações transparentes e confiáveis com clientes e parceiros.</p>
-					</li>
-				</ul>
-			</section>
-		</main>
-
-		<footer>
-			<p>&copy; 2026 DualCode. Todos os direitos reservados.</p>
-		</footer>
-	</body>
-</html>
+	<section>
+		<h2>Nossos Valores</h2>
+		<ul>
+			{empresa.valores.map((valor) => (
+				<li>
+					<h3>{valor.titulo}</h3>
+					<p>{valor.descricao}</p>
+				</li>
+			))}
+		</ul>
+	</section>
+</LayoutBase>
