@@ -34,7 +34,7 @@ export const empresa = {
       cep: "01000-000"
     }
   },
-  equipe: [
+   equipe: [
     {
       nome: "Kailany Nascimento",
       cargo: "Co-fundadora, CEO e Desenvolvedora Front-end",
