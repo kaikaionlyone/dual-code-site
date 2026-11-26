@@ -1,9 +1,8 @@
-
 export const empresa = {
   nome: "DualCode",
   slogan: "Grandes projetos são feitos por pessoas que não desistem.",
   historia:
-    "A DualCode foi fundada em 2024 por Kailany Nascimento e Maria Emanuele da Silva, após concluírem sua formação superior na área de tecnologia. Durante a trajetória acadêmica, as duas desenvolveram projetos em parceria e perceberam que muitas empresas enfrentavam problemas de segurança digital, como senhas fracas, falhas na programação e sistemas vulneráveis. Diante disso, decidiram criar uma empresa voltada ao desenvolvimento de soluções tecnológicas seguras e confiáveis. O nome DualCode surgiu da união de 'Dual', representando a parceria das fundadoras, e 'Code', que significa código em inglês. Com o crescimento da empresa, João Marcos da Silva passou a integrar a equipe como desenvolvedor Full Stack, fortalecendo a criação de sistemas e a segurança da informação.",
+    "A DualCode foi fundada em 2024 por Kailany Nascimento e Maria Emanuele da Silva, após concluírem sua formação superior na área de tecnologia. Durante a trajetória acadêmica, as duas desenvolveram projetos em parceria e perceberam que muitas empresas enfrentavam problemas de segurança digital, como senhas fracas, falhas na programação e sistemas vulneráveis. Diante disso, decidiram criar uma empresa voltada ao desenvolvimento de soluções tecnológicas seguras e confiáveis. O nome DualCode surgiu da união de 'Dual', representando a parceria das fundadoras, e 'Code', que significa código em inglês. Com o crescimento da empresa, João Marcos da Silva passou a integrar a equipe como desenvolvedor Full Stack, fortalecendo a criação de sistemas e a segurança da informação, e Martin Edwards entrou para somar na área de segurança da informação e qualidade.",
   missao:
     "Tornar a segurança de dados mais acessível e compreensível para todos, independentemente do nível de conhecimento técnico, garantindo também a segurança e a confiabilidade dos códigos e soluções desenvolvidos pela empresa.",
   visao:
@@ -56,6 +55,13 @@ export const empresa = {
       foto: "/images/joao.jpg",
       alt: "Foto de João Marcos da Silva",
       descricao: "Desenvolvedor Full Stack da DualCode, responsável por fortalecer a criação de sistemas e contribuir para a segurança da informação."
+    },
+    {
+      nome: "Martin Edwards",
+      cargo: "Especialista em Segurança da Informação e QA",
+      foto: "/images/martin.jpg",
+      alt: "Foto de Martin Edwards",
+      descricao: "Responsável por testes de segurança, revisão de vulnerabilidades e garantia de qualidade das aplicações desenvolvidas pela DualCode."
     }
   ]
 };
