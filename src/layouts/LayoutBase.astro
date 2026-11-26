@@ -13,6 +13,12 @@ const { titulo, descricao } = Astro.props;
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={descricao} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+			rel="stylesheet"
+		/>
 		<title>{titulo} | {empresa.nome}</title>
 	</head>
 	<body>
@@ -23,3 +29,21 @@ const { titulo, descricao } = Astro.props;
 		<Footer />
 	</body>
 </html>
+
+<style>
+	body {
+		margin: 0;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		background: linear-gradient(135deg, #060D1A 0%, #0E2A52 70%, #003B73 100%);
+		color: #FFF8E7;
+		font-family: 'Poppins', system-ui, sans-serif;
+		font-size: 0.92rem;
+	}
+
+	main {
+		flex: 1;
+		background: linear-gradient(135deg, #060D1A 0%, #0E2A52 70%, #003B73 100%);
+	}
+</style>

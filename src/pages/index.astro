@@ -1,3 +1,4 @@
+
 ---
 import LayoutBase from '../layouts/LayoutBase.astro';
 import Cartao from '../components/Cartao.astro';
@@ -9,52 +10,504 @@ import { empresa } from '../data/empresa.js';
 	descricao={`Bem-vindo à ${empresa.nome}. ${empresa.slogan}`}
 >
 	<section class="hero">
-		<div class="container">
-			<h1>{empresa.slogan}</h1>
-			<p class="hero-descricao">{empresa.missao}</p>
-			<a href="/contato" class="btn">Fale Conosco</a>
+		<div class="hero-luz"></div>
+
+		<div class="container hero-container">
+			<div class="hero-conteudo">
+				<span class="hero-etiqueta">
+					<span class="ponto"></span>
+				 SOLUÇÕES EM TECNOLOGIA
+				</span>
+
+				<h1>{empresa.slogan}</h1>
+
+				<div class="linha-destaque"></div>
+
+				<p class="hero-descricao">
+					{empresa.missao}
+				</p>
+
+				<div class="hero-botoes">
+					<a href="/contato" class="btn">
+						Fale Conosco <span>→</span>
+					</a>
+
+					<a href="/sobre" class="btn-secundario">
+						Conheça a DualCode
+					</a>
+				</div>
+			</div>
+
+			<div class="hero-visual" aria-hidden="true">
+				<div class="circulo circulo-1"></div>
+				<div class="circulo circulo-2"></div>
+
+				<div class="painel-tecnologico">
+					<div class="painel-topo">
+						<div class="painel-pontos">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<span>DUALCODE.SYS</span>
+					</div>
+
+					<div class="painel-conteudo">
+						<div class="simbolo">&lt;/&gt;</div>
+						<div class="codigo-linha linha-1"></div>
+						<div class="codigo-linha linha-2"></div>
+						<div class="codigo-linha linha-3"></div>
+						<div class="codigo-linha linha-4"></div>
+
+						<div class="painel-status">
+							<span class="status-ponto"></span>
+						 SISTEMA EM EVOLUÇÃO
+						</div>
+					</div>
+				</div>
+
+				<div class="elemento-flutuante">
+					<span>01</span>
+				 <div>
+						<strong>INOVAÇÃO</strong>
+						<small>Ideias em movimento</small>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hero-rodape">
+			<span>DUALCODE</span>
+			<span>TECNOLOGIA QUE CONECTA POSSIBILIDADES</span>
 		</div>
 	</section>
 
-	<section class="publico secao secao-alt">
+	<section class="publico secao">
 		<div class="container">
-			<h2>Quem Atendemos</h2>
-			<Cartao>
-				<p class="texto-publico">{empresa.publicoAlvo}</p>
-			</Cartao>
+			<div class="publico-cabecalho">
+				<span class="subtitulo">NOSSO PROPÓSITO</span>
+				<h2>Quem Atendemos</h2>
+				<p>
+					Conheça quem está no centro das nossas soluções.
+				</p>
+			</div>
+
+			<div class="publico-card">
+				<div class="publico-icone">&lt;/&gt;</div>
+
+				<Cartao>
+					<p class="texto-publico">{empresa.publicoAlvo}</p>
+				</Cartao>
+			</div>
 		</div>
 	</section>
 </LayoutBase>
 
 <style>
+	/* HERO */
+
 	.hero {
-		background: var(--degrade-hero);
-		color: var(--cor-texto-invertido);
-		padding: 6rem 0;
+		position: relative;
+		overflow: hidden;
+		min-height: 480px;
+		display: flex;
+		align-items: center;
+		background:
+			radial-gradient(ellipse at 85% 45%, rgba(8,124,203,0.20), transparent 40%),
+			linear-gradient(115deg, #050D1B 0%, #0A1D36 60%, #0B2850 100%);
+		border-bottom: 1px solid rgba(41,197,246,0.25);
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: radial-gradient(rgba(140,193,233,0.16) 1px, transparent 1px);
+		background-size: 28px 28px;
+		opacity: 0.22;
+		pointer-events: none;
+	}
+
+	.hero-luz {
+		position: absolute;
+		width: 350px;
+		height: 350px;
+		right: 10%;
+		top: 10%;
+		background: #087CCB;
+		filter: blur(150px);
+		opacity: 0.12;
+	}
+
+	.hero-container {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		align-items: center;
+		gap: 3rem;
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+
+	/* TEXTO */
+
+	.hero-conteudo {
+		max-width: 650px;
+	}
+
+	.hero-etiqueta {
+		display: inline-flex;
+		align-items: center;
+		gap: 9px;
+		padding: 7px 13px;
+		margin-bottom: 1.5rem;
+		border: 1px solid rgba(41,197,246,0.3);
+		border-radius: 30px;
+		background: rgba(8,124,203,0.09);
+		color: #8CC1E9;
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.13em;
+	}
+
+	.ponto,
+	.status-ponto {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: #29C5F6;
+		box-shadow: 0 0 10px #29C5F6;
 	}
 
 	.hero h1 {
-		color: var(--cor-texto-invertido);
-		font-size: 3rem;
+		font-family: var(--fonte-titulo);
+		font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+		font-weight: 700;
+		line-height: 1.12;
+		letter-spacing: -0.045em;
+		color: #F4F8FF;
 		margin-bottom: 1.5rem;
-		line-height: 1.1;
-		max-width: 800px;
+		max-width: 680px;
+	}
+
+	.linha-destaque {
+		width: 75px;
+		height: 3px;
+		border-radius: 5px;
+		background: linear-gradient(90deg, #087CCB, #29C5F6);
+		margin-bottom: 1.5rem;
 	}
 
 	.hero-descricao {
-		font-size: 1.25rem;
-		max-width: 700px;
+		max-width: 570px;
+		color: #A9C9E8;
+		font-size: 0.95rem;
+		line-height: 1.9;
 		margin-bottom: 2rem;
-		color: var(--cor-texto-invertido-suave);
+	}
+
+	/* BOTÕES */
+
+	.hero-botoes {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1.3rem;
+	}
+
+	.hero-botoes .btn span {
+		margin-left: 10px;
+		font-size: 1.1rem;
+	}
+
+	.btn-secundario {
+		color: #C7DFF3;
+		font-size: 0.82rem;
+		font-weight: 600;
+		transition: 0.3s ease;
+	}
+
+	.btn-secundario:hover {
+		color: #29C5F6;
+	}
+
+	/* ELEMENTO TECNOLÓGICO */
+
+	.hero-visual {
+		position: relative;
+		min-height: 300px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.circulo {
+		position: absolute;
+		border: 1px solid rgba(41,197,246,0.17);
+		border-radius: 50%;
+	}
+
+	.circulo-1 {
+		width: 290px;
+		height: 290px;
+	}
+
+	.circulo-2 {
+		width: 360px;
+		height: 360px;
+		border-style: dashed;
+		opacity: 0.5;
+	}
+
+	.painel-tecnologico {
+		position: relative;
+		z-index: 1;
+		width: 270px;
+		background: rgba(8,25,47,0.92);
+		border: 1px solid rgba(41,197,246,0.35);
+		border-radius: 15px;
+		box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+		transform: rotate(-3deg);
+	}
+
+	.painel-topo {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 13px 16px;
+		border-bottom: 1px solid rgba(41,197,246,0.15);
+		color: #7899B8;
+		font-size: 0.62rem;
+		letter-spacing: 0.1em;
+	}
+
+	.painel-pontos {
+		display: flex;
+		gap: 5px;
+	}
+
+	.painel-pontos span {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: #087CCB;
+	}
+
+	.painel-conteudo {
+		padding: 25px;
+	}
+
+	.simbolo {
+		font-family: var(--fonte-titulo);
+		font-size: 3.5rem;
+		font-weight: 700;
+		color: #29C5F6;
+		text-shadow: 0 0 25px rgba(41,197,246,0.4);
+		margin-bottom: 18px;
+	}
+
+	.codigo-linha {
+		height: 5px;
+		border-radius: 5px;
+		background: #087CCB;
+		margin-bottom: 12px;
+		opacity: 0.55;
+	}
+
+	.linha-1 { width: 90%; }
+	.linha-2 { width: 65%; background: #29C5F6; }
+	.linha-3 { width: 80%; }
+	.linha-4 { width: 45%; background: #29C5F6; }
+
+	.painel-status {
+		display: flex;
+		align-items: center;
+		gap: 9px;
+		margin-top: 25px;
+		padding-top: 15px;
+		border-top: 1px solid rgba(41,197,246,0.15);
+		color: #8CC1E9;
+		font-size: 0.58rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+	}
+
+	.elemento-flutuante {
+		position: absolute;
+		z-index: 2;
+		right: -5px;
+		bottom: 5px;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 13px 16px;
+		background: #102C4B;
+		border: 1px solid rgba(41,197,246,0.3);
+		border-radius: 10px;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+	}
+
+	.elemento-flutuante > span {
+		font-family: var(--fonte-titulo);
+		font-size: 1.5rem;
+		color: #29C5F6;
+	}
+
+	.elemento-flutuante strong,
+	.elemento-flutuante small {
+		display: block;
+	}
+
+	.elemento-flutuante strong {
+		font-size: 0.68rem;
+		color: white;
+		letter-spacing: 0.08em;
+	}
+
+	.elemento-flutuante small {
+		font-size: 0.58rem;
+		color: #A9C9E8;
+	}
+
+	/* RODAPÉ DO HERO */
+
+	.hero-rodape {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		justify-content: space-between;
+		padding: 12px max(calc((100% - 1100px) / 2), 1.5rem);
+		border-top: 1px solid rgba(41,197,246,0.12);
+		color: #7899B8;
+		font-size: 0.58rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+	}
+
+	/* QUEM ATENDEMOS */
+
+	.publico {
+		background:
+			radial-gradient(ellipse at 50% 100%, rgba(8,124,203,0.09), transparent 55%),
+			#071426;
+	}
+
+	.publico-cabecalho {
+		text-align: center;
+		margin-bottom: 2.5rem;
+	}
+
+	.subtitulo {
+		color: #29C5F6;
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.16em;
 	}
 
 	.publico h2 {
-		margin-bottom: 2rem;
+		display: block;
+		font-family: var(--fonte-titulo);
+		font-size: clamp(1.8rem, 3vw, 2.4rem);
+		color: #F4F8FF;
+		margin: 0.7rem 0;
+		padding: 0;
+		border: none;
+	}
+
+	.publico-cabecalho p {
+		color: #8FAFCB;
+		font-size: 0.88rem;
+	}
+
+	.publico-card {
+		max-width: 780px;
+		margin: 0 auto;
+		position: relative;
+		padding: 28px;
+		background: linear-gradient(135deg, #102B4B, #0A1C33);
+		border: 1px solid rgba(41,197,246,0.25);
+		border-radius: 15px;
+		box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+	}
+
+	.publico-icone {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		margin-bottom: 15px;
+		border-radius: 10px;
+		background: rgba(8,124,203,0.15);
+		border: 1px solid rgba(41,197,246,0.3);
+		color: #29C5F6;
+		font-family: var(--fonte-titulo);
+		font-size: 1.1rem;
+		font-weight: 700;
 	}
 
 	.texto-publico {
-		margin-bottom: 0;
-		font-size: 1.125rem;
-		color: var(--cor-texto-secundario);
+		margin: 0;
+		font-size: 0.92rem;
+		line-height: 1.9;
+		color: #C7DFF3;
+	}
+
+	/* RESPONSIVIDADE */
+
+	@media (max-width: 768px) {
+		.hero-container {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding-top: 4rem;
+			padding-bottom: 5rem;
+		}
+
+		.hero-conteudo {
+			max-width: 100%;
+		}
+
+		.hero-visual {
+			min-height: 310px;
+		}
+
+		.elemento-flutuante {
+			right: 5%;
+		}
+
+		.hero-rodape {
+			font-size: 0.5rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.hero h1 {
+			font-size: 2.15rem;
+		}
+
+		.hero-descricao {
+			font-size: 0.86rem;
+		}
+
+		.hero-botoes {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.hero-visual {
+			transform: scale(0.88);
+			margin: -15px 0;
+		}
+
+		.hero-rodape span:last-child {
+			display: none;
+		}
+
+		.publico-card {
+			padding: 20px;
+		}
 	}
 </style>

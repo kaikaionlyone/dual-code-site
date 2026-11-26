@@ -1,3 +1,4 @@
+
 ---
 import { empresa } from '../data/empresa.js';
 
@@ -6,69 +7,161 @@ const anoAtual = new Date().getFullYear();
 
 <footer class="rodape">
 	<div class="faixa-topo"></div>
+
 	<div class="container rodape-container">
 		<div class="rodape-marca">
+			<span class="marca-legenda">TECNOLOGIA E INOVAÇÃO</span>
 			<h2>{empresa.nome}</h2>
-			<p>&copy; {anoAtual} {empresa.nome}. Todos os direitos reservados.</p>
+			<p class="marca-descricao">
+				Tecnologia que conecta possibilidades.
+			</p>
+			<p class="copyright">
+				&copy; {anoAtual} {empresa.nome}. Todos os direitos reservados.
+			</p>
 		</div>
 
 		<div class="rodape-contato">
+			<h3>Onde estamos</h3>
 			<p>{empresa.contato.endereco.logradouro}</p>
 			<p>{empresa.contato.endereco.complemento} - {empresa.contato.endereco.bairro}</p>
 			<p>{empresa.contato.endereco.cidadeEstado} - CEP: {empresa.contato.endereco.cep}</p>
+
 			<div class="links-contato">
-				<a href={`mailto:${empresa.contato.email}`}>{empresa.contato.email}</a>
+				<h3>Fale conosco</h3>
+				<a href={`mailto:${empresa.contato.email}`}>
+					{empresa.contato.email}
+				</a>
 				<p>{empresa.contato.telefone}</p>
 			</div>
 		</div>
+	</div>
+
+	<div class="rodape-final">
+		<span>DUALCODE</span>
+		<span>SEGURANÇA • INOVAÇÃO • CONFIANÇA</span>
 	</div>
 </footer>
 
 <style>
 	.rodape {
-		background-color: var(--cor-primaria);
-		color: var(--cor-texto-invertido);
+		background: linear-gradient(145deg, #050D1B, #0B1D35 65%, #07162A);
+		color: #C7DFF3;
+		font-family: 'Poppins', system-ui, sans-serif;
+		font-size: 0.88rem;
 		margin-top: auto;
+		border-top: 1px solid rgba(41, 197, 246, 0.2);
 	}
 
 	.faixa-topo {
-		height: 4px;
-		background: var(--degrade-marca);
+		height: 3px;
+		background: linear-gradient(
+			90deg,
+			#087CCB,
+			#29C5F6,
+			#087CCB
+		);
 	}
 
 	.rodape-container {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		gap: 2rem;
-		padding: 3rem 1.5rem;
+		align-items: flex-start;
+		gap: 3rem;
+		padding: 3.5rem 1.5rem;
 	}
 
 	.rodape-marca h2 {
-		color: var(--cor-texto-invertido);
-		margin-bottom: 0.5rem;
+		font-family: 'Space Grotesk', system-ui, sans-serif;
+		font-size: 1.8rem;
+		color: #FFFFFF;
+		margin: 0.5rem 0;
+		letter-spacing: 0.04em;
 	}
 
-	.rodape-marca p, .rodape-contato p {
-		color: var(--cor-texto-invertido-suave);
-		font-size: 0.875rem;
-		margin-bottom: 0.25rem;
+	.marca-legenda {
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.18em;
+		color: #29C5F6;
+	}
+
+	.marca-descricao {
+		color: #A9C9E8;
+		margin-bottom: 2rem;
+		font-size: 0.85rem;
+	}
+
+	.copyright {
+		color: #7895B2;
+		font-size: 0.75rem;
+	}
+
+	.rodape-contato h3 {
+		font-family: 'Space Grotesk', system-ui, sans-serif;
+		font-size: 1rem;
+		color: #FFFFFF;
+		margin-bottom: 1rem;
+	}
+
+	.rodape-contato p {
+		color: #A9C9E8;
+		font-size: 0.82rem;
+		line-height: 1.7;
+		margin-bottom: 0.2rem;
 	}
 
 	.links-contato {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-		margin-top: 1rem;
+		gap: 0.45rem;
+		margin-top: 1.5rem;
+		padding-top: 1.2rem;
+		border-top: 1px solid rgba(169, 201, 232, 0.15);
+	}
+
+	.links-contato h3 {
+		margin-bottom: 0.3rem;
 	}
 
 	.links-contato a {
-		color: var(--cor-texto-invertido);
+		color: #29C5F6;
+		font-size: 0.84rem;
+		font-weight: 500;
 		text-decoration: none;
+		transition: color 0.2s ease;
 	}
 
 	.links-contato a:hover {
-		color: var(--cor-texto-invertido-suave);
-		text-decoration: underline;
+		color: #FFFFFF;
+	}
+
+	.rodape-final {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+		padding: 1.2rem 1.5rem;
+		border-top: 1px solid rgba(169, 201, 232, 0.12);
+		color: #7895B2;
+		font-size: 0.68rem;
+		letter-spacing: 0.12em;
+	}
+
+	.rodape-final span:first-child {
+		color: #29C5F6;
+		font-weight: 700;
+	}
+
+	@media (max-width: 600px) {
+		.rodape-container {
+			flex-direction: column;
+			gap: 2rem;
+			padding: 2.5rem 1.5rem;
+		}
+
+		.rodape-final {
+			flex-direction: column;
+		}
 	}
 </style>

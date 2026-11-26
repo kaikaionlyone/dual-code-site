@@ -1,3 +1,4 @@
+
 ---
 import LayoutBase from '../layouts/LayoutBase.astro';
 import Cartao from '../components/Cartao.astro';
@@ -8,20 +9,34 @@ import { empresa } from '../data/empresa.js';
 	titulo="Sobre Nós" 
 	descricao={`Conheça a história e os valores da ${empresa.nome}.`}
 >
-	<section class="secao">
+	<section class="secao sobre">
 		<div class="container">
-			<div class="bloco-texto">
-				<h1>Sobre a {empresa.nome}</h1>
-				<p class="historia">{empresa.historia}</p>
+			<div class="cabecalho">
+				<span class="etiqueta">QUEM SOMOS</span>
+				<h1>Conheça a <span>{empresa.nome}</span></h1>
+				<p class="subtitulo">
+					Conheça nossa trajetória, nossos objetivos e o que nos
+					move a construir soluções em tecnologia.
+				</p>
+			</div>
+
+			<div class="bloco-historia">
+				<div class="linha-decorativa"></div>
+				<div>
+					<h2>Nossa História</h2>
+					<p class="historia">{empresa.historia}</p>
+				</div>
 			</div>
 
 			<div class="grid-missao-visao">
-				<Cartao>
+				<Cartao destaque={true}>
+					<span class="numero">01 / PROPÓSITO</span>
 					<h2>Missão</h2>
 					<p>{empresa.missao}</p>
 				</Cartao>
 				
-				<Cartao>
+				<Cartao destaque={true}>
+					<span class="numero">02 / FUTURO</span>
 					<h2>Visão</h2>
 					<p>{empresa.visao}</p>
 				</Cartao>
@@ -29,12 +44,21 @@ import { empresa } from '../data/empresa.js';
 		</div>
 	</section>
 
-	<section class="secao secao-alt">
+	<section class="secao secao-valores">
 		<div class="container">
-			<h2 class="titulo-valores">Nossos Valores</h2>
+			<div class="cabecalho-valores">
+				<span class="etiqueta">NOSSA ESSÊNCIA</span>
+				<h2>Nossos Valores</h2>
+				<p>
+					Os princípios que orientam nossas escolhas e nosso
+					compromisso com a tecnologia.
+				</p>
+			</div>
+
 			<div class="grid-valores">
-				{empresa.valores.map((valor) => (
+				{empresa.valores.map((valor, i) => (
 					<Cartao destaque={true}>
+						<span class="numero">0{i + 1}</span>
 						<h3>{valor.titulo}</h3>
 						<p>{valor.descricao}</p>
 					</Cartao>
@@ -45,40 +69,155 @@ import { empresa } from '../data/empresa.js';
 </LayoutBase>
 
 <style>
-	.bloco-texto {
+	.sobre {
+		padding-top: 4rem;
+		padding-bottom: 4.5rem;
+	}
+
+	.cabecalho {
+		max-width: 780px;
 		margin-bottom: 3rem;
-		max-width: 800px;
+	}
+
+	.etiqueta {
+		display: inline-block;
+		color: #29C5F6;
+		font-size: 0.7rem;
+		font-weight: 600;
+		letter-spacing: 0.18em;
+		margin-bottom: 0.9rem;
+	}
+
+	.cabecalho h1 {
+		font-family: 'Space Grotesk', system-ui, sans-serif;
+		font-size: clamp(2rem, 4vw, 3rem);
+		color: #FFFFFF;
+		line-height: 1.2;
+		margin-bottom: 1rem;
+	}
+
+	.cabecalho h1 span {
+		color: #29C5F6;
+	}
+
+	.subtitulo {
+		color: #A9C9E8;
+		font-family: 'Poppins', system-ui, sans-serif;
+		font-size: 0.95rem;
+		line-height: 1.8;
+		max-width: 650px;
+	}
+
+	.bloco-historia {
+		display: flex;
+		gap: 1.3rem;
+		max-width: 850px;
+		margin-bottom: 3rem;
+	}
+
+	.linha-decorativa {
+		width: 3px;
+		min-width: 3px;
+		background: linear-gradient(#29C5F6, #087CCB);
+		border-radius: 5px;
+	}
+
+	.bloco-historia h2 {
+		font-family: 'Space Grotesk', system-ui, sans-serif;
+		color: #FFFFFF;
+		font-size: 1.35rem;
+		margin-bottom: 0.8rem;
 	}
 
 	.historia {
-		font-size: 1.125rem;
-		color: var(--cor-texto-secundario);
+		font-family: 'Poppins', system-ui, sans-serif;
+		font-size: 0.92rem;
+		line-height: 1.85;
+		color: #A9C9E8;
 	}
 
 	.grid-missao-visao {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+		gap: 1.5rem;
 	}
 
-	.grid-missao-visao h2 {
-		font-size: 1.5rem;
-		color: var(--cor-secundaria);
+	.numero {
+		display: block;
+		color: #29C5F6;
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		margin-bottom: 1rem;
 	}
 
-	.titulo-valores {
+	.grid-missao-visao h2,
+	.grid-valores h3 {
+		font-family: 'Space Grotesk', system-ui, sans-serif;
+		color: #FFFFFF;
+		font-size: 1.3rem;
+		margin-bottom: 0.8rem;
+	}
+
+	.grid-missao-visao p,
+	.grid-valores p {
+		font-family: 'Poppins', system-ui, sans-serif;
+		font-size: 0.88rem;
+		color: #C7DFF3;
+		line-height: 1.8;
+		margin-bottom: 0;
+	}
+
+	.secao-valores {
+		background: linear-gradient(
+			145deg,
+			rgba(8, 124, 203, 0.09),
+			rgba(5, 13, 27, 0.2)
+		);
+		border-top: 1px solid rgba(41, 197, 246, 0.12);
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+
+	.cabecalho-valores {
 		margin-bottom: 2rem;
+	}
+
+	.cabecalho-valores h2 {
+		font-family: 'Space Grotesk', system-ui, sans-serif;
+		font-size: clamp(1.7rem, 3vw, 2.2rem);
+		color: #FFFFFF;
+		margin-bottom: 0.7rem;
+	}
+
+	.cabecalho-valores p {
+		font-family: 'Poppins', system-ui, sans-serif;
+		color: #A9C9E8;
+		font-size: 0.9rem;
+		line-height: 1.7;
+		max-width: 600px;
 	}
 
 	.grid-valores {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		gap: 1.5rem;
 	}
 
-	.grid-valores h3 {
-		font-size: 1.25rem;
-		color: var(--cor-secundaria);
-		margin-bottom: 0.5rem;
+	@media (max-width: 600px) {
+		.sobre,
+		.secao-valores {
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+		}
+
+		.bloco-historia {
+			gap: 0.9rem;
+		}
+
+		.grid-missao-visao,
+		.grid-valores {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

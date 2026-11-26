@@ -1,3 +1,4 @@
+
 ---
 import { empresa } from '../data/empresa.js';
 
@@ -6,71 +7,231 @@ const currentPath = Astro.url.pathname;
 
 <header class="cabecalho">
 	<div class="faixa-topo"></div>
+
 	<div class="container cabecalho-container">
-		<a href="/">
-			<img 
-				src="/images/logo.jpg" 
-				alt={`Logotipo da ${empresa.nome}`} 
-				class="logo-img" 
+		<a href="/" class="logo-link">
+			<span class="logo-brilho"></span>
+			<img
+				src="/images/logo.jpg"
+				alt={`Logotipo da ${empresa.nome}`}
+				class="logo-img"
 			/>
 		</a>
 
 		<nav class="navegacao">
 			<ul>
-				<li><a href="/" class:list={[{ ativo: currentPath === '/' }]}>Início</a></li>
-				<li><a href="/sobre" class:list={[{ ativo: currentPath.startsWith('/sobre') }]}>Sobre</a></li>
-				<li><a href="/equipe" class:list={[{ ativo: currentPath.startsWith('/equipe') }]}>Equipe</a></li>
-				<li><a href="/contato" class:list={[{ ativo: currentPath.startsWith('/contato') }]}>Contato</a></li>
+				<li>
+					<a href="/" class:list={[{ ativo: currentPath === '/' }]}>
+						Início
+					</a>
+				</li>
+
+				<li>
+					<a href="/sobre" class:list={[{ ativo: currentPath.startsWith('/sobre') }]}>
+						Sobre
+					</a>
+				</li>
+
+				<li>
+					<a href="/equipe" class:list={[{ ativo: currentPath.startsWith('/equipe') }]}>
+						Equipe
+					</a>
+				</li>
+
+				<li>
+					<a href="/contato" class:list={[{ ativo: currentPath.startsWith('/contato') }]}>
+						Contato
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</div>
 </header>
 
 <style>
-	.faixa-topo {
-		height: 4px;
-		background: var(--degrade-marca);
-	}
+	/* CABEÇALHO */
 
 	.cabecalho {
-		background-color: var(--cor-fundo);
-		border-bottom: 1px solid var(--cor-borda);
-		padding-bottom: 1rem;
+		position: relative;
+		z-index: 10;
+		background: linear-gradient(
+			110deg,
+			#050D1B 0%,
+			#091B33 55%,
+			#0B2850 100%
+		);
+		border-bottom: 1px solid rgba(41, 197, 246, 0.3);
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+		font-family: 'Poppins', sans-serif;
 	}
 
+	/* LINHA SUPERIOR */
+
+	.faixa-topo {
+		height: 3px;
+		background: linear-gradient(
+			90deg,
+			#050D1B,
+			#087CCB,
+			#29C5F6,
+			#087CCB,
+			#050D1B
+		);
+		box-shadow: 0 0 12px rgba(41, 197, 246, 0.6);
+	}
+
+	/* ORGANIZAÇÃO */
+
 	.cabecalho-container {
+		min-height: 94px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		flex-wrap: wrap;
-		gap: 1.5rem;
-		padding-top: 1.5rem;
+		gap: 2rem;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+	}
+
+	/* LOGO */
+
+	.logo-link {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 5px 12px;
+		text-decoration: none;
+		transition: transform 0.3s ease;
+	}
+
+	.logo-link:hover {
+		transform: scale(1.05);
+	}
+
+	.logo-brilho {
+		position: absolute;
+		width: 85%;
+		height: 65%;
+		background: #087CCB;
+		filter: blur(30px);
+		opacity: 0.24;
+		border-radius: 50%;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
+	}
+
+	.logo-link:hover .logo-brilho {
+		opacity: 0.55;
 	}
 
 	.logo-img {
-		height: 60px; /* Logo maior e legível */
-		width: auto;
+		position: relative;
+		z-index: 1;
 		display: block;
+		height: 76px;
+		width: auto;
+		max-width: 210px;
+		object-fit: contain;
+		border: none;
+		outline: none;
+		box-shadow: none;
+		filter: drop-shadow(0 0 9px rgba(41, 197, 246, 0.3));
 	}
+
+	/* MENU */
 
 	.navegacao ul {
 		list-style: none;
 		display: flex;
-		flex-wrap: wrap;
-		gap: 1.5rem;
+		align-items: center;
+		gap: 2rem;
+		margin: 0;
+		padding: 0;
 	}
 
 	.navegacao a {
+		position: relative;
+		display: inline-block;
+		font-family: 'Poppins', sans-serif;
+		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--cor-texto);
-		padding: 0.5rem 0;
-		border-bottom: 2px solid transparent;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+		color: #EAF5FF;
+		padding: 0.6rem 0;
+		text-decoration: none;
+		transition: color 0.3s ease;
 	}
 
-	.navegacao a:hover,
+	/* LINHA ANIMADA */
+
+	.navegacao a::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: linear-gradient(90deg, #087CCB, #29C5F6);
+		box-shadow: 0 0 10px rgba(41, 197, 246, 0.6);
+		transition: width 0.3s ease;
+	}
+
+	.navegacao a:hover {
+		color: #29C5F6;
+	}
+
+	.navegacao a:hover::after {
+		width: 100%;
+	}
+
+	/* PÁGINA ATUAL */
+
 	.navegacao a.ativo {
-		color: var(--cor-secundaria);
-		border-bottom-color: var(--cor-secundaria);
-		text-decoration: none;
+		color: #29C5F6;
+	}
+
+	.navegacao a.ativo::after {
+		width: 100%;
+	}
+
+	/* RESPONSIVIDADE */
+
+	@media (max-width: 768px) {
+		.cabecalho-container {
+			flex-direction: column;
+			justify-content: center;
+			gap: 0.8rem;
+			padding-top: 0.8rem;
+			padding-bottom: 1rem;
+		}
+
+		.logo-img {
+			height: 68px;
+		}
+
+		.navegacao ul {
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 1.3rem;
+		}
+
+		.navegacao a {
+			font-size: 0.75rem;
+		}
+	}
+
+	@media (max-width: 400px) {
+		.navegacao ul {
+			gap: 0.9rem;
+		}
+
+		.navegacao a {
+			font-size: 0.68rem;
+		}
+
+		.logo-img {
+			height: 60px;
+		}
 	}
 </style>

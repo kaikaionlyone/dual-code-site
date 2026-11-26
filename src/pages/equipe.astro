@@ -8,7 +8,7 @@ import { empresa } from '../data/empresa.js';
 	titulo="Nossa Equipe" 
 	descricao={`Conheça os profissionais por trás da ${empresa.nome}.`}
 >
-	<section class="secao">
+	<section class="secao secao-equipe">
 		<div class="container">
 			<div class="cabecalho-secao">
 				<h1>Nossa Equipe Técnica</h1>
@@ -40,20 +40,40 @@ import { empresa } from '../data/empresa.js';
 </LayoutBase>
 
 <style>
+	.secao-equipe {
+		background-color: #E5E7EB;
+		color: #091426;
+		min-height: 100%;
+	}
+
 	.cabecalho-secao {
-		margin-bottom: 3rem;
+		margin-bottom: 2.5rem;
+		padding-left: 1rem;
+		border-left: 3px solid #0E2A52;
+	}
+
+	.cabecalho-secao h1 {
+		font-family: 'Space Grotesk', system-ui, sans-serif;
+		font-size: clamp(1.65rem, 3.2vw, 2.2rem);
+		letter-spacing: -0.015em;
+		text-transform: uppercase;
+		color: #091426;
+		margin-bottom: 0.65rem;
 	}
 
 	.cabecalho-secao p {
-		font-size: 1.125rem;
-		color: var(--cor-texto-secundario);
+		font-family: 'Poppins', system-ui, sans-serif;
+		font-size: 0.92rem;
+		line-height: 1.65;
+		color: #1F2937;
+		font-weight: 400;
 		max-width: 600px;
 	}
 
 	.grid-equipe {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+		gap: 1.75rem;
 		max-width: 850px;
 		margin: 0 auto;
 	}
@@ -66,32 +86,48 @@ import { empresa } from '../data/empresa.js';
 	}
 
 	.foto-perfil {
-		width: 140px;
-		height: 140px;
+		width: 132px;
+		height: 132px;
 		border-radius: 50%;
 		object-fit: cover;
-		margin-bottom: 1.25rem;
-		border: 4px solid var(--cor-borda);
+		margin-bottom: 1.15rem;
+		border: 3px solid #2B6CA3;
+		box-shadow: 0 6px 16px rgba(9, 20, 38, 0.16);
+		transition: border-color 0.2s ease, transform 0.2s ease;
+	}
+
+	.foto-perfil:hover {
+		border-color: #091426;
+		transform: scale(1.03);
 	}
 
 	.info-membro h3 {
-		font-size: 1.25rem;
-		margin-bottom: 0.25rem;
+		font-family: 'Space Grotesk', system-ui, sans-serif;
+		font-size: 1.1rem;
+		color: #091426;
+		margin-bottom: 0.35rem;
 	}
 
 	.cargo {
 		display: inline-block;
-		color: var(--cor-secundaria);
-		font-size: 0.875rem;
-		font-weight: 700;
+		color: #FFF8E7;
+		background: linear-gradient(90deg, #091426 0%, #0E2A52 100%);
+		padding: 0.22rem 0.7rem;
+		border-radius: 999px;
+		border: 1px solid #2B6CA3;
+		font-family: 'Poppins', system-ui, sans-serif;
+		font-size: 0.72rem;
+		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.5px;
-		margin-bottom: 1rem;
+		letter-spacing: 0.06em;
+		margin-bottom: 0.9rem;
 	}
 
 	.descricao-membro {
-		font-size: 0.95rem;
-		color: var(--cor-texto-secundario);
+		font-family: 'Poppins', system-ui, sans-serif;
+		font-size: 0.88rem;
+		line-height: 1.65;
+		color: #091426;
 		margin-bottom: 0;
 	}
 </style>
