@@ -18,7 +18,7 @@
   /* DEGRADÊS */
   --degrade-marca: linear-gradient(120deg, #071426, #0B2C55, #087CCB);
   --degrade-hero: linear-gradient(120deg, #071426 0%, #0D3768 55%, #087CCB 100%);
-  --degrade-card: linear-gradient(135deg, rgba(17, 49, 83, 0.85), rgba(8, 27, 49, 0.95));
+  --degrade-card: linear-gradient(135deg, rgba(206, 224, 243, 0.85), rgba(142, 189, 243, 0.95));
 
   /* FONTES */
   --fonte-titulo: 'Space Grotesk', sans-serif;
